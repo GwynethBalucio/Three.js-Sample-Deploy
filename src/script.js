@@ -11,7 +11,7 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
  * Base
  */
 // Debug
-const gui = new GUI()
+// const gui = new GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -19,14 +19,14 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Environment Map
-const rgbeLoader = new RGBELoader()
-rgbeLoader.load('./textures/environmentMaps/HDR_multi_nebulae.hdr', (environmentMap) => {
-    environmentMap.mapping = THREE.EquirectangularReflectionMapping
+// // Environment Map
+// const rgbeLoader = new RGBELoader()
+// rgbeLoader.load('./textures/environmentMaps/HDR_multi_nebulae.hdr', (environmentMap) => {
+//     environmentMap.mapping = THREE.EquirectangularReflectionMapping
 
-    scene.background = environmentMap
-    scene.environment = environmentMap
-})
+//     scene.background = environmentMap
+//     scene.environment = environmentMap
+// })
 
 /**
  * Textures
@@ -34,8 +34,8 @@ rgbeLoader.load('./textures/environmentMaps/HDR_multi_nebulae.hdr', (environment
 const textureLoader = new THREE.TextureLoader()
 const matcapTexture = textureLoader.load('/textures/matcaps/5.png')
 matcapTexture.colorSpace = THREE.SRGBColorSpace
-const material = new THREE.MeshMatcapMaterial({matcap: matcapTexture})
-// const material = new THREE.MeshNormalMaterial()
+// const material = new THREE.MeshMatcapMaterial({matcap: matcapTexture})
+const material = new THREE.MeshNormalMaterial()
 
 // Fonts
 const fontLoader = new FontLoader()
